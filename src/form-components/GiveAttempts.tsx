@@ -5,7 +5,7 @@ function addAttempts(
     requestedAttempts: string,
     setAttempts: React.Dispatch<React.SetStateAction<number>>,
 ) {
-    const attempts = parseInt(requestedAttempts);
+    const attempts = parseInt(requestedAttempts) || 0;
     setAttempts((prev) => prev + attempts);
 }
 
@@ -15,6 +15,7 @@ export function GiveAttempts(): React.JSX.Element {
     return (
         <div>
             <h3>Give Attempts</h3>
+            <p>Number of attempts remaining : {attempts}</p>
             <Form.Group controlId="formAttemptsRequested">
                 <Form.Label>Number of Attempts Requested</Form.Label>
                 <Form.Control
